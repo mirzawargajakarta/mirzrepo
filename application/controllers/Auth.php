@@ -322,37 +322,5 @@ class Auth extends CI_Controller
             redirect('auth');
         }
     }
-
-    public function pendataan()
-    {
-        $data['title'] = 'Dokumen Aktif';
-        $data['user'] = 'ahmad mirza';
-
-        $this->form_validation->set_rules('jenisdokumen', 'Jenis Dokumen', 'required');
-        $this->form_validation->set_rules('nodokumen', 'No Dokumen', 'required');
-        $this->form_validation->set_rules('titledokumen', 'Titel Dokumen', 'required');
-        $this->form_validation->set_rules('tglberlaku', 'Tanggal Berlaku', 'required');
-        $this->form_validation->set_rules('tglberakhir', 'Tanggal Berakhir', 'required');
-
-        $data['jenisdoks']      = $this->_getJenisDokumen();
-        $data['error_upload']   = '';
-        
-        $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('templates/topbar', $data);
-        $this->load->view('dokumen/dokumen_tambah', $data);
-        $this->load->view('templates/footer_noclosing');
-        $this->load->view('templates/plugin_datepicker', $data);
-        $this->load->view('dokumen/dokumen_tambah_js', $data);
-        $this->load->view('templates/closing');
-    }
-
-    private function _getJenisDokumen()
-    {
-        $sql = "SELECT id, nama_dokumen
-                FROM jenis_dokumen ORDER BY nama_dokumen";
-        $query = $this->db->query($sql);
-        $result = $query->result_array();
-        return $result;
-    }
+    
 }
