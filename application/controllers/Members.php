@@ -10,7 +10,7 @@ class Members extends CI_Controller
 
     public function index()
     {
-        $data['title']   = 'Pendaftaran';
+        $data['title']   = 'Pendaftaran';        
         $this->load->view('members/daftar_satu', $data);
     }
 
@@ -41,29 +41,30 @@ class Members extends CI_Controller
 
 	public function simpan()
     {
+
 		$datatoinsert = array(
-			'kategori'   		=> $this->input->post(''),
-			'hasil'        		=> $this->input->post(''),
-			'kapasitas_jumlah'  => $this->input->post(''),
-			'kapasitas_sat'     => $this->input->post(''),
-			'jenis'    			=> $this->input->post(''),
-			'namausaha'        	=> $this->input->post(''),
-			'berdiri'        	=> $this->input->post(''),
-			'karyawan_jumlah'   => $this->input->post(''),
-			'alamat'        	=> $this->input->post(''),
-			'propinsi'        	=> $this->input->post(''),
-			'kabupaten'        	=> $this->input->post(''),
-			'kodepos'       	=> $this->input->post(''),
-			'email_usaha'       => $this->input->post(''),
-			'nohp_usaha'        => $this->input->post(''),
-			'kodeareatelpkantor'	=> $this->input->post(''),
-			'notelpkantor'      => $this->input->post(''),
-			'nama'        		=> $this->input->post(''),
-			'tempatlahir'       => $this->input->post(''),
-			'tgllahir'        	=> $this->input->post(''),
-			'sex'        		=> $this->input->post(''),
-			'email_pic'        	=> $this->input->post(''),
-			'nohp_pic'        	=> $this->input->post('')
+			'kategori'   		=> $this->input->post('kategori'),
+			'hasil'        		=> $this->input->post('hasilProduk'),
+			'kapasitas_jumlah'  => $this->input->post('jumlahproduksi'),
+			'kapasitas_sat'     => $this->input->post('satuanproduksi'),
+			'jenis'    			=> $this->input->post('jenis'),
+			'namausaha'        	=> $this->input->post('namausaha'),
+			'berdiri'        	=> $this->input->post('berdiri'),
+			'karyawan_jumlah'   => $this->input->post('jumkaryawan'),
+			'alamat'        	=> $this->input->post('alamatusaha'),
+			'propinsi'        	=> $this->input->post('propinsi'),
+			'kabupaten'        	=> $this->input->post('kabupaten'),
+			'kodepos'       	=> $this->input->post('kodepos'),
+			'email_usaha'       => $this->input->post('emailusaha'),
+			'nohp_usaha'        => $this->input->post('nohpusaha'),
+			'kodeareatelpkantor'	=> $this->input->post('kodearea'),
+			'notelpkantor'      => $this->input->post('notelp'),
+			'nama'        		=> $this->input->post('namapic'),
+			'tempatlahir'       => $this->input->post('tempatlahir'),
+			'tgllahir'        	=> $this->input->post('tgllahir'),
+			'sex'        		=> $this->input->post('sex'),
+			'email_pic'        	=> $this->input->post('emailpic'),
+			'nohp_pic'        	=> $this->input->post('nohppic')
 		);
         $this->db->insert('members', $datatoinsert);
 		redirect('members');

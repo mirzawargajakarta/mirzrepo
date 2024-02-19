@@ -10,7 +10,8 @@
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"  crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-	<style>
+	<?php $this->load->view('templates/plugin_datepicker'); ?>
+    <style>
 		/*
 		*
 		* ==========================================
@@ -20,6 +21,10 @@
 		*/
         .rata-kanan {
             text-align:right;
+        }
+
+        textarea {
+            vertical-align:top;
         }
 
 		.border-md {
@@ -85,6 +90,13 @@
 				$('input, select').on('blur', function () {
 					$(this).parent().find('.input-group-text').css('border-color', '#ced4da');
 				});
+
+                $(".datepicker").datepicker({
+                    format: 'yyyy-mm-dd',
+                    autoclose: true,
+                    todayHighlight: true,
+                });
+
 			});
 	</script>
     <title><?php echo $title; ?></title>
@@ -118,13 +130,15 @@
         <div class="col-md-7 col-lg-6 ml-auto">
             <form action="<?php echo base_url('members/simpan');?>" method="post" />
                 <div class="row">
-                    <div class="form-group col-lg-12">
+<!-- Produk -->                    
+                    <div class="form-group col-lg-12 mb-0">
                         <label class="font-italic"><strong>Produk</strong></label>
                     </div>
+    <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                             <label for="kategori">Kategori</label>
                             <select class="form-control custom-select bg-white border-md" id="kategori" name="kategori">
-                                <option value="">- Pilih Kategori -</option>
+                                <option value="">- Pilih Kategori Produk -</option>
                                 <option value="Pertanian">Pertanian</option>
                                 <option value="Nelayan">Nelayan</option>
                             </select>                            
@@ -135,12 +149,10 @@
                         <input type="text" id="hasilProduk" name="hasilProduk" type="text" placeholder="Hasil Produk" autocomplete="off" class="form-control" required value="<?= set_value('hasilProduk'); ?>">
                         <?= form_error('hasilProduk', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-                    <div class="form-group col-lg-12 mb-2 mt-2">
-                        <label class="font-italic"><strong>Kapasitas Produksi Pertahun</strong></label>
-                    </div>
+    <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
-                        <label for="jumlahproduksi">Jumlah</label>
-                        <input type="text" id="jumlahproduksi" name="jumlahproduksi" type="text" placeholder="Jumlah Produksi" autocomplete="off" class="form-control rata-kanan" required value="<?= set_value('jumlahproduksi'); ?>">
+                        <label for="jumlahproduksi">Kapasitas Produksi perTahun</label>
+                        <input type="text" id="jumlahproduksi" name="jumlahproduksi" type="text" placeholder="Jumlah" autocomplete="off" class="form-control rata-kanan" required value="<?= set_value('jumlahproduksi'); ?>">
                         <?= form_error('jumlahproduksi', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-6 mb-2">
@@ -153,10 +165,11 @@
                             </select>                            
                             <?= form_error('satuanproduksi', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-                    <div class="form-group col-lg-12 mb-2 mt-4">
+<!-- Usaha -->
+                    <div class="form-group col-lg-12 mb-0 mt-4">
                         <label class="font-italic"><strong>Usaha</strong></label>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                             <label for="kategori">Jenis</label>
                             <select class="form-control custom-select bg-white border-md" id="jenis" name="jenis">
@@ -172,10 +185,10 @@
                         <input type="text" id="namausaha" name="namausaha" type="text" placeholder="Nama Usaha" autocomplete="off" class="form-control" required value="<?= set_value('namausaha'); ?>">
                         <?= form_error('namausaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                         <label for="berdiri">Berdiri Sejak</label>
-                        <input type="text" id="berdiri" name="berdiri" type="text" placeholder="Tanggal Pendirian" autocomplete="off" class="form-control" required value="<?= set_value('berdiri'); ?>">
+                        <input type="text" id="berdiri" name="berdiri" type="text" placeholder="Tanggal Pendirian" autocomplete="off" class="form-control datepicker" required value="<?= set_value('berdiri'); ?>">
                         <?= form_error('berdiri', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-6 mb-2">
@@ -189,13 +202,13 @@
                             </select>                            
                             <?= form_error('jumkaryawan', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-12 mb-2">
                         <label for="berdiri">Alamat</label>
-                        <textarea class="form-control" id="alamatusaha" name="alamatusaha" type="text" placeholder="Alamat Usaha" required></textarea>
+                        <textarea rows="2" class="form-control" id="alamatusaha" name="alamatusaha" type="text" placeholder="Alamat Usaha" required></textarea>
                         <?= form_error('alamatusaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                         <label for="propinsi">Propinsi</label>
                         <input type="text" id="propinsi" name="propinsi" type="text" placeholder="Propinsi" autocomplete="off" class="form-control" required value="<?= set_value('propinsi'); ?>">
@@ -206,7 +219,7 @@
                         <input type="text" id="kabupaten" name="kabupaten" type="text" placeholder="Kabupaten" autocomplete="off" class="form-control" required value="<?= set_value('kabupaten'); ?>">
                         <?= form_error('kabupaten', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-3 mb-2">
                         <label for="kodepos">Kode pos</label>
                         <input type="text" id="kodepos" name="kodepos" type="text" placeholder="Kode pos" autocomplete="off" class="form-control" required value="<?= set_value('kodepos'); ?>">
@@ -217,7 +230,7 @@
                         <input type="text" id="emailusaha" name="emailusaha" type="text" placeholder="Email" autocomplete="off" class="form-control" required value="<?= set_value('emailusaha'); ?>">
                         <?= form_error('emailusaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-
+    <!-- nl -->
                     <div class="form-group col-lg-5 mb-2">
                         <label for="nohpusaha">No HP</label>
                         <input type="text" id="nohpusaha" name="nohpusaha" type="text" placeholder="No HP" autocomplete="off" class="form-control" required value="<?= set_value('nohpusaha'); ?>">
@@ -233,11 +246,55 @@
                         <input type="text" id="notelp" name="notelp" type="text" placeholder="Nomor Telepon" autocomplete="off" class="form-control" required value="<?= set_value('notelp'); ?>">
                         <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
-                    
-
-
-                    <!-- Submit Button -->
-                    <div class="form-group col-lg-12 mx-auto mb-0">
+<!-- PIC(Board Of Direector) -->
+                    <div class="form-group col-lg-12 mb-0 mt-4">
+                        <label class="font-italic"><strong>PIC ( Board Of Director )</strong></label>
+                    </div>
+    <!-- nl -->
+                    <div class="form-group col-lg-8 mb-2">
+                        <label for="namapic">Nama</label>
+                        <input type="text" id="namapic" name="namapic" type="text" placeholder="Nama PIC" autocomplete="off" class="form-control" required value="<?= set_value('namapic'); ?>">
+                        <?= form_error('namapic', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group col-lg-4 mb-2">
+                        <label for="sex">Jenis Kelamin&nbsp;&nbsp;&nbsp;</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="pria" value="Pria">
+                            <label class="form-check-label" for="pria">
+                                Pria
+                            </label>                            
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="wanita" value="Wanita">
+                            <label class="form-check-label" for="wanita">
+                                Wanita
+                            </label>
+                        </div>
+                    </div>
+    <!-- nl -->
+                    <div class="form-group col-lg-8 mb-2">
+                        <label for="tempatlahir">Tempat Lahir</label>
+                        <input type="text" id="tempatlahir" name="tempatlahir" type="text" placeholder="Tempat Lahir" autocomplete="off" class="form-control" required value="<?= set_value('tempatlahir'); ?>">
+                        <?= form_error('tempatlahir', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group col-lg-4 mb-1">
+                        <label for="tgllahir">Tanggal Lahir</label>
+                        <input type="text" id="tgllahir" name="tgllahir" type="text" placeholder="Tanggal Lahir" autocomplete="off" class="form-control  datepicker" required value="<?= set_value('tgllahir'); ?>">
+                        <?= form_error('tgllahir', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>  
+    <!-- nl -->
+                    <div class="form-group col-lg-8 mb-2">
+                        <label for="emailpic">Email</label>
+                        <input type="text" id="emailpic" name="emailpic" type="text" placeholder="Email" autocomplete="off" class="form-control" required value="<?= set_value('emailpic'); ?>">
+                        <?= form_error('emailpic', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group col-lg-4 mb-2">
+                        <label for="nohppic">No HP</label>
+                        <input type="text" id="nohppic" name="nohppic" type="text" placeholder="Nomor HP" autocomplete="off" class="form-control" required value="<?= set_value('nohppic'); ?>">
+                        <?= form_error('nohppic', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+<!-- Submit Simpan Data -->
+                    <div class="form-group col-lg-12 mx-auto mt-4">
                         <button type="submit" class="btn btn-primary btn-block py-2">
                             <i class="fa fa-save"></i>
                             <span class="font-weight-bold">Simpan Data</span>
