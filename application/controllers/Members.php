@@ -41,33 +41,61 @@ class Members extends CI_Controller
 
 	public function simpan()
     {
+        $this->form_validation->set_rules('kategori', 'Kategori Produk', 'required');
+        $this->form_validation->set_rules('hasilProduk', 'Hasil Produk', 'required');
+        $this->form_validation->set_rules('jumlahproduksi', 'Jumlah Produksi per Tahun', 'required');
+        $this->form_validation->set_rules('satuanproduksi', 'Satuan Produksi', 'required');
+        $this->form_validation->set_rules('jenis', 'Jenis Usaha', 'required');
+        $this->form_validation->set_rules('namausaha', 'Nama Usaha', 'required');
+        $this->form_validation->set_rules('berdiri', 'Tanggal Pendirian', 'required');
+        $this->form_validation->set_rules('jumkaryawan', 'Jumlah Karyawan', 'required');
+        $this->form_validation->set_rules('alamatusaha', 'Alamat Tempat Usaha', 'required');
+        $this->form_validation->set_rules('propinsi', 'Propinsi', 'required');
+        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
+        $this->form_validation->set_rules('kodepos', 'Kodepos', 'required');
+        $this->form_validation->set_rules('emailusaha', 'Email Usaha', 'required');
+        $this->form_validation->set_rules('nohpusaha', 'Nomor HP Usaha', 'required');
+        $this->form_validation->set_rules('kodearea', 'Kode area telepon', 'required');
+        $this->form_validation->set_rules('notelp', 'Nomor Telepon', 'required');
+        $this->form_validation->set_rules('namapic', 'Nama PIC', 'required');
+        $this->form_validation->set_rules('tempatlahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tgllahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('emailpic', 'Email', 'required');
+        $this->form_validation->set_rules('nohppic', 'Nomor HP', 'required');
 
-		$datatoinsert = array(
-			'kategori'   		=> $this->input->post('kategori'),
-			'hasil'        		=> $this->input->post('hasilProduk'),
-			'kapasitas_jumlah'  => $this->input->post('jumlahproduksi'),
-			'kapasitas_sat'     => $this->input->post('satuanproduksi'),
-			'jenis'    			=> $this->input->post('jenis'),
-			'namausaha'        	=> $this->input->post('namausaha'),
-			'berdiri'        	=> $this->input->post('berdiri'),
-			'karyawan_jumlah'   => $this->input->post('jumkaryawan'),
-			'alamat'        	=> $this->input->post('alamatusaha'),
-			'propinsi'        	=> $this->input->post('propinsi'),
-			'kabupaten'        	=> $this->input->post('kabupaten'),
-			'kodepos'       	=> $this->input->post('kodepos'),
-			'email_usaha'       => $this->input->post('emailusaha'),
-			'nohp_usaha'        => $this->input->post('nohpusaha'),
-			'kodeareatelpkantor'	=> $this->input->post('kodearea'),
-			'notelpkantor'      => $this->input->post('notelp'),
-			'nama'        		=> $this->input->post('namapic'),
-			'tempatlahir'       => $this->input->post('tempatlahir'),
-			'tgllahir'        	=> $this->input->post('tgllahir'),
-			'sex'        		=> $this->input->post('sex'),
-			'email_pic'        	=> $this->input->post('emailpic'),
-			'nohp_pic'        	=> $this->input->post('nohppic')
-		);
-        $this->db->insert('members', $datatoinsert);
-		redirect('members');
+        if ($this->form_validation->run() == false) {
+            $data['title']   = 'Pendaftaran';
+            $this->load->view('members/daftar_satu', $data);
+        } else { //validasi OK
+
+            $datatoinsert = array(
+                'kategori'   		=> $this->input->post('kategori'),
+                'hasil'        		=> $this->input->post('hasilProduk'),
+                'kapasitas_jumlah'  => $this->input->post('jumlahproduksi'),
+                'kapasitas_sat'     => $this->input->post('satuanproduksi'),
+                'jenis'    			=> $this->input->post('jenis'),
+                'namausaha'        	=> $this->input->post('namausaha'),
+                'berdiri'        	=> $this->input->post('berdiri'),
+                'karyawan_jumlah'   => $this->input->post('jumkaryawan'),
+                'alamat'        	=> $this->input->post('alamatusaha'),
+                'propinsi'        	=> $this->input->post('propinsi'),
+                'kabupaten'        	=> $this->input->post('kabupaten'),
+                'kodepos'       	=> $this->input->post('kodepos'),
+                'email_usaha'       => $this->input->post('emailusaha'),
+                'nohp_usaha'        => $this->input->post('nohpusaha'),
+                'kodeareatelpkantor'	=> $this->input->post('kodearea'),
+                'notelpkantor'      => $this->input->post('notelp'),
+                'nama'        		=> $this->input->post('namapic'),
+                'tempatlahir'       => $this->input->post('tempatlahir'),
+                'tgllahir'        	=> $this->input->post('tgllahir'),
+                'sex'        		=> $this->input->post('sex'),
+                'email_pic'        	=> $this->input->post('emailpic'),
+                'nohp_pic'        	=> $this->input->post('nohppic')
+            );
+            $this->db->insert('members', $datatoinsert);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Terima Kasih, Data Berhasil Disimpan!</div>');
+            redirect('members');
+        }
     }
 
     private function _getJenisDokumen()

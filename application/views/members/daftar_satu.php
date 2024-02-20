@@ -146,13 +146,13 @@
                     </div>
                     <div class="form-group col-lg-6 mb-2">
                         <label for="hasilProduk">Hasil</label>
-                        <input type="text" id="hasilProduk" name="hasilProduk" type="text" placeholder="Hasil Produk" autocomplete="off" class="form-control" required value="<?= set_value('hasilProduk'); ?>">
+                        <input type="text" id="hasilProduk" name="hasilProduk" type="text" placeholder="Hasil Produk" autocomplete="off" class="form-control" value="<?= set_value('hasilProduk'); ?>">
                         <?= form_error('hasilProduk', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                         <label for="jumlahproduksi">Kapasitas Produksi perTahun</label>
-                        <input type="text" id="jumlahproduksi" name="jumlahproduksi" type="text" placeholder="Jumlah" autocomplete="off" class="form-control rata-kanan" required value="<?= set_value('jumlahproduksi'); ?>">
+                        <input type="text" id="jumlahproduksi" name="jumlahproduksi" type="text" placeholder="Jumlah" autocomplete="off" class="form-control rata-kanan" value="<?= set_value('jumlahproduksi'); ?>">
                         <?= form_error('jumlahproduksi', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-6 mb-2">
@@ -171,7 +171,7 @@
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
-                            <label for="kategori">Jenis</label>
+                            <label for="jenis">Jenis</label>
                             <select class="form-control custom-select bg-white border-md" id="jenis" name="jenis">
                                 <option value="">- Pilih Jenis -</option>
                                 <option value="PT">PT</option>
@@ -182,13 +182,13 @@
                     </div>
                     <div class="form-group col-lg-6 mb-2">
                         <label for="namausaha">Nama</label>
-                        <input type="text" id="namausaha" name="namausaha" type="text" placeholder="Nama Usaha" autocomplete="off" class="form-control" required value="<?= set_value('namausaha'); ?>">
+                        <input type="text" id="namausaha" name="namausaha" type="text" placeholder="Nama Usaha" autocomplete="off" class="form-control" value="<?= set_value('namausaha'); ?>">
                         <?= form_error('namausaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                         <label for="berdiri">Berdiri Sejak</label>
-                        <input type="text" id="berdiri" name="berdiri" type="text" placeholder="Tanggal Pendirian" autocomplete="off" class="form-control datepicker" required value="<?= set_value('berdiri'); ?>">
+                        <input type="text" id="berdiri" name="berdiri" type="text" placeholder="Tanggal Pendirian" autocomplete="off" class="form-control datepicker" value="<?= set_value('berdiri'); ?>">
                         <?= form_error('berdiri', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-6 mb-2">
@@ -205,45 +205,45 @@
     <!-- nl -->
                     <div class="form-group col-lg-12 mb-2">
                         <label for="berdiri">Alamat</label>
-                        <textarea rows="2" class="form-control" id="alamatusaha" name="alamatusaha" type="text" placeholder="Alamat Usaha" required></textarea>
+                        <textarea rows="2" class="form-control" id="alamatusaha" name="alamatusaha" type="text" placeholder="Alamat Usaha"></textarea>
                         <?= form_error('alamatusaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-6 mb-2">
                         <label for="propinsi">Propinsi</label>
-                        <input type="text" id="propinsi" name="propinsi" type="text" placeholder="Propinsi" autocomplete="off" class="form-control" required value="<?= set_value('propinsi'); ?>">
+                        <input type="text" id="propinsi" name="propinsi" type="text" placeholder="Propinsi" autocomplete="off" class="form-control" value="<?= set_value('propinsi'); ?>">
                         <?= form_error('propinsi', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-6 mb-2">
                         <label for="kabupaten">Kabupaten</label>
-                        <input type="text" id="kabupaten" name="kabupaten" type="text" placeholder="Kabupaten" autocomplete="off" class="form-control" required value="<?= set_value('kabupaten'); ?>">
+                        <input type="text" id="kabupaten" name="kabupaten" type="text" placeholder="Kabupaten" autocomplete="off" class="form-control" value="<?= set_value('kabupaten'); ?>">
                         <?= form_error('kabupaten', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-3 mb-2">
                         <label for="kodepos">Kode pos</label>
-                        <input type="text" id="kodepos" name="kodepos" type="text" placeholder="Kode pos" autocomplete="off" class="form-control" required value="<?= set_value('kodepos'); ?>">
+                        <input type="text" id="kodepos" name="kodepos" type="text" placeholder="Kode pos" autocomplete="off" class="form-control" value="<?= set_value('kodepos'); ?>">
                         <?= form_error('kodepos', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-9 mb-2">
                         <label for="emailusaha">Email</label>
-                        <input type="text" id="emailusaha" name="emailusaha" type="text" placeholder="Email" autocomplete="off" class="form-control" required value="<?= set_value('emailusaha'); ?>">
+                        <input type="text" id="emailusaha" name="emailusaha" type="text" placeholder="Email" autocomplete="off" class="form-control" value="<?= set_value('emailusaha'); ?>">
                         <?= form_error('emailusaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
     <!-- nl -->
                     <div class="form-group col-lg-5 mb-2">
                         <label for="nohpusaha">No HP</label>
-                        <input type="text" id="nohpusaha" name="nohpusaha" type="text" placeholder="No HP" autocomplete="off" class="form-control" required value="<?= set_value('nohpusaha'); ?>">
+                        <input type="text" id="nohpusaha" name="nohpusaha" type="text" placeholder="No HP" autocomplete="off" class="form-control" value="<?= set_value('nohpusaha'); ?>">
                         <?= form_error('nohpusaha', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-3 mb-2">
                         <label for="kodearea">Kode Area</label>
-                        <input type="text" id="kodearea" name="kodearea" type="text" placeholder="Kode Area" autocomplete="off" class="form-control" required value="<?= set_value('kodearea'); ?>">
+                        <input type="text" id="kodearea" name="kodearea" type="text" placeholder="Kode Area" autocomplete="off" class="form-control" value="<?= set_value('kodearea'); ?>">
                         <?= form_error('kodearea', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-4 mb-2">
                         <label for="notelp">No Telepon Kantor</label>
-                        <input type="text" id="notelp" name="notelp" type="text" placeholder="Nomor Telepon" autocomplete="off" class="form-control" required value="<?= set_value('notelp'); ?>">
+                        <input type="text" id="notelp" name="notelp" type="text" placeholder="Nomor Telepon" autocomplete="off" class="form-control" value="<?= set_value('notelp'); ?>">
                         <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
 <!-- PIC(Board Of Direector) -->
@@ -253,7 +253,7 @@
     <!-- nl -->
                     <div class="form-group col-lg-8 mb-2">
                         <label for="namapic">Nama</label>
-                        <input type="text" id="namapic" name="namapic" type="text" placeholder="Nama PIC" autocomplete="off" class="form-control" required value="<?= set_value('namapic'); ?>">
+                        <input type="text" id="namapic" name="namapic" type="text" placeholder="Nama PIC" autocomplete="off" class="form-control" value="<?= set_value('namapic'); ?>">
                         <?= form_error('namapic', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-4 mb-2">
@@ -274,23 +274,23 @@
     <!-- nl -->
                     <div class="form-group col-lg-8 mb-2">
                         <label for="tempatlahir">Tempat Lahir</label>
-                        <input type="text" id="tempatlahir" name="tempatlahir" type="text" placeholder="Tempat Lahir" autocomplete="off" class="form-control" required value="<?= set_value('tempatlahir'); ?>">
+                        <input type="text" id="tempatlahir" name="tempatlahir" type="text" placeholder="Tempat Lahir" autocomplete="off" class="form-control" value="<?= set_value('tempatlahir'); ?>">
                         <?= form_error('tempatlahir', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-4 mb-1">
                         <label for="tgllahir">Tanggal Lahir</label>
-                        <input type="text" id="tgllahir" name="tgllahir" type="text" placeholder="Tanggal Lahir" autocomplete="off" class="form-control  datepicker" required value="<?= set_value('tgllahir'); ?>">
+                        <input type="text" id="tgllahir" name="tgllahir" type="text" placeholder="Tanggal Lahir" autocomplete="off" class="form-control  datepicker" value="<?= set_value('tgllahir'); ?>">
                         <?= form_error('tgllahir', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>  
     <!-- nl -->
                     <div class="form-group col-lg-8 mb-2">
                         <label for="emailpic">Email</label>
-                        <input type="text" id="emailpic" name="emailpic" type="text" placeholder="Email" autocomplete="off" class="form-control" required value="<?= set_value('emailpic'); ?>">
+                        <input type="text" id="emailpic" name="emailpic" type="text" placeholder="Email" autocomplete="off" class="form-control" value="<?= set_value('emailpic'); ?>">
                         <?= form_error('emailpic', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group col-lg-4 mb-2">
                         <label for="nohppic">No HP</label>
-                        <input type="text" id="nohppic" name="nohppic" type="text" placeholder="Nomor HP" autocomplete="off" class="form-control" required value="<?= set_value('nohppic'); ?>">
+                        <input type="text" id="nohppic" name="nohppic" type="text" placeholder="Nomor HP" autocomplete="off" class="form-control" value="<?= set_value('nohppic'); ?>">
                         <?= form_error('nohppic', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
 <!-- Submit Simpan Data -->
