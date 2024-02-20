@@ -130,6 +130,13 @@
         <div class="col-md-7 col-lg-6 ml-auto">
             <form action="<?php echo base_url('members/simpan');?>" method="post" />
                 <div class="row">
+
+                <?php if ($this->session->flashdata('message') !== NULL) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?php echo $this->session->flashdata('message'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                <?php endif; ?>
 <!-- Produk -->                    
                     <div class="form-group col-lg-12 mb-0">
                         <label class="font-italic"><strong>Produk</strong></label>
